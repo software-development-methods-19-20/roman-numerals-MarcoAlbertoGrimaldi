@@ -11,6 +11,19 @@ public class RomanNumeral {
         StringBuilder res = new StringBuilder();
         if(decimal == 0) return "";
 
+        addSomeM(res);
+
+        if(decimal/100 == 9) res.append("CM");
+        else if(decimal/100 == 4) res.append("CD");
+        else {
+            if(decimal/500 == 0) {
+                addSomeC(res);
+            } else {
+                res.append("D");
+                addSomeC(res);
+            }
+        }
+
         if(decimal/10 == 9) res.append("XC");
         else if(decimal/10 == 4) res.append("XL");
         else {
@@ -41,5 +54,13 @@ public class RomanNumeral {
 
     private void addSomeX(StringBuilder res) {
         res.append("X".repeat(Math.min(3, decimal/10%5)));
+    }
+
+    private void addSomeC(StringBuilder res) {
+        res.append("C".repeat(Math.min(3, decimal/100%5)));
+    }
+
+    private void addSomeM(StringBuilder res) {
+        res.append("M".repeat(decimal/1000));
     }
 }

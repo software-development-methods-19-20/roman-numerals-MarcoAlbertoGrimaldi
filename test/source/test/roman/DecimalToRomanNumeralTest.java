@@ -18,8 +18,8 @@ public class DecimalToRomanNumeralTest {
     }
 
     @Test
-    void oneIIsII() {
-        check(2, "II");
+    void n1856IsDCCCLVI() {
+        check(1856, "MDCCCLVI");
     }
 
     @Test
